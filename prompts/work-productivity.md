@@ -35,5 +35,5 @@ Goal: To turn vague requirements into actionable steps and manage professional r
 9. "Give me a 2-minute version of this presentation for when I inevitably run out of time: [topic]" 
 >  Every presenters backup plan
 
-10.  "What are 3 non-obvious questions I should ask before starting: [project]" 
+10. "What are 3 non-obvious questions I should ask before starting: [project]" 
 > Catches the gotchas early
