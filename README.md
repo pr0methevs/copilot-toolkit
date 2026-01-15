@@ -4,49 +4,101 @@ A curated collection of GitHub Copilot instructions, prompts, agents, and experi
 
 ## Setup
 
-Guide on settng instructions/rules and prompts/workflows in different IDEs
-
+Guide on setting instructions/rules and prompts/workflows in different IDEs.
 
 ### Visual Studio Code
 
-Global Instructions and Prompts: These are typically stored in user configuration directories, not within the workspace.
+#### Globals
+Custom instructions, prompts, and skills stored globally are available across all workspaces.
 
-Windows: `%APPDATA%\Code\User`\` 
-- (e.g., `C:\Users\YourName\AppData\Roaming\Code\User\`).​
+**Instructions:**
+- Windows: `%APPDATA%\Code\User\`
+- macOS/Linux: `~/.config/Code/User/`
 
-Linux: `~/.config/Code/User/` 
-- (e.g., `/home/yourname/.config/Code/User/`).​
+**Prompts:**
+- Windows: `%APPDATA%\Code\User\`
+- macOS/Linux: `~/.config/Code/User/`
 
-Workspace Instructions and Prompts: These are stored in the workspace directory, usually under `.github/instructions` or similar, and are not global.​
+**Skills:**
+- Windows: `%USERPROFILE%\.copilot\skills\`
+- macOS/Linux: `~/.copilot/skills/`
+- Alternative: `~/.claude/skills/` (Copilot coding agent and GitHub Copilot CLI)
 
+#### Workspace
+Custom instructions, prompts, and skills scoped to a specific project or workspace.
 
-### Intellij 
+**Instructions:**
+- `.github/instructions/` or `.claude/instructions/`
 
-Global Instructions and Prompts: IntelliJ stores global (user-specific) configuration files in the user's home directory.
+**Prompts:**
+- `.github/prompts/` or `.claude/prompts/`
 
-Windows: `%USERPROFILE%\.IntelliJIdea<version>\config`
-- (e.g., `C:\Users\YourName\.IntelliJIdea2025.2\config)`.​
+**Skills:**
+- `.github/skills/` or `.claude/skills/`
 
-Linux: `~/.config/JetBrains/IntelliJIdea<version>` or `~/.IntelliJIdea<version>/config`
-- (e.g., `/home/yourname/.config/JetBrains/IntelliJIdea2025.2/config`).​
+---
 
-Workspace (Project) Instructions and Prompts: These are stored in the `.idea` folder within the project directory and are not global.​
+### IntelliJ
 
+#### Globals
+Custom instructions, prompts, and skills stored globally are available across all projects.
 
+**Instructions:**
+- Windows: `%USERPROFILE%\.IntelliJIdea<version>\config`
+- macOS/Linux: `~/.config/JetBrains/IntelliJIdea<version>` or `~/.IntelliJIdea<version>/config`
 
-### Antigravity:
+**Prompts:**
+- Windows: `%USERPROFILE%\.IntelliJIdea<version>\config`
+- macOS/Linux: `~/.config/JetBrains/IntelliJIdea<version>` or `~/.IntelliJIdea<version>/config`
 
-Both Rules and Workflows can be applied globally or per workspace and saved to the following locations:
+**Skills:**
+- Windows: `%USERPROFILE%\.intellij\skills\`
+- macOS/Linux: `~/.intellij/skills/`
 
-- Global rule: `~/.gemini/GEMINI.md`
-- Global workflow: `~/.gemini/antigravity/global_workflows/global-workflow.md`
-- Workspace rules: `your-workspace/.agent/rules/`
-- Workspace workflows: `your-workspace/.agent/workflows/`
+#### Workspace
+Custom instructions, prompts, and skills scoped to a specific project.
+
+**Instructions:**
+- `.idea/instructions/` or `.claude/instructions/`
+
+**Prompts:**
+- `.idea/prompts/` or `.claude/prompts/`
+
+**Skills:**
+- `.idea/skills/` or `.claude/skills/`
+
+---
+
+### Antigravity
+
+#### Globals
+Custom rules, workflows, and skills available globally across all workspaces.
+
+**Instructions (Rules):**
+- `~/.gemini/GEMINI.md`
+
+**Prompts (Workflows):**
+- `~/.gemini/antigravity/global_workflows/`
+
+**Skills:**
+- `~/.gemini/antigravity/skills/{skill_folder}/`
+
+#### Workspace
+Custom rules, workflows, and skills scoped to a specific workspace.
+
+**Instructions (Rules):**
+- `{workspace_root}/.agent/rules/`
+
+**Prompts (Workflows):**
+- `{workspace_root}/.agent/workflows/`
+
+**Skills:**
+- `{workspace_root}/.agent/skills/{skill_folder}/`
 
 #### Breaking down Rule Files: `@ Mentions`
 
-You can reference other files using @filename in a Rules file. 
+You can reference other files using `@filename` in a Rules file.
 
-- If filename is a relative path, it will be interpreted relative to the location of the Rules file. 
-- If filename is an absolute path, it will be resolved as a true absolute path, otherwise it will be resolved relative to the repository. 
-  - For example, @/path/to/file.md will first attempt to be resolved to /path/to/file.md, and if that file does not exist, it will be resolved to workspace/path/to/file.md.
+- If filename is a relative path, it will be interpreted relative to the location of the Rules file.
+- If filename is an absolute path, it will be resolved as a true absolute path, otherwise it will be resolved relative to the repository.
+  - For example, `@/path/to/file.md` will first attempt to be resolved to `/path/to/file.md`, and if that file does not exist, it will be resolved to `workspace/path/to/file.md`.
