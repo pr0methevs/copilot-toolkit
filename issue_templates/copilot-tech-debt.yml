@@ -1,0 +1,74 @@
+name: "Technical Debt (for Copilot)"
+description: "Address a specific piece of technical debt in the codebase"
+title: "[TECH-DEBT] "
+labels:
+  - technical-debt
+  - copilot-agent
+body:
+  - type: textarea
+    id: debt_description
+    attributes:
+      label: Debt Description
+      description: "What is the technical debt and why is it a problem?"
+      placeholder: "Describe the anti-pattern, workaround, or legacy approach."
+    validations:
+      required: true
+
+  - type: textarea
+    id: affected_components
+    attributes:
+      label: Affected Components
+      description: "List modules, services, or features impacted by this debt."
+      placeholder: "e.g. auth service, billing pipeline."
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: "How does this debt affect maintainability, performance, or security?"
+      placeholder: "e.g. Slows down onboarding, causes frequent bugs, security risk."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: Proposed Solution
+      description: "Describe the desired target state or approach."
+      placeholder: "e.g. Replace custom X with library Y, standardize on pattern Z."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: debt_acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      options:
+        - label: "Debt is removed or significantly reduced"
+        - label: "No loss of existing functionality"
+        - label: "All tests pass"
+        - label: "Relevant documentation updated"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: effort_estimate
+    attributes:
+      label: Effort Estimate
+      options:
+        - "Small"
+        - "Medium"
+        - "Large"
+    validations:
+      required: false
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: "Related issues, PRs, or external changes required."
+      placeholder: "e.g. Blocked by #123, depends on upgrading library Z."
+    validations:
+      required: false

@@ -1,0 +1,46 @@
+name: "Question / Support"
+description: "Ask a question about how to use the project"
+title: "[QUESTION] "
+labels:
+  - question
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: "What would you like to know?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: "Provide context about what you're trying to do."
+    validations:
+      required: true
+
+  - type: textarea
+    id: prior_attempts
+    attributes:
+      label: What have you already tried?
+      description: "Describe the steps you've already taken to solve this."
+    validations:
+      required: false
+
+  - type: textarea
+    id: relevant_code
+    attributes:
+      label: Relevant Code
+      description: "Paste any relevant code snippets (redact secrets)."
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: expected_outcome
+    attributes:
+      label: Expected Outcome
+      description: "What result are you hoping for?"
+    validations:
+      required: false

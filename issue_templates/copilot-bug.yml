@@ -1,0 +1,95 @@
+name: "Bug Fix (for Copilot)"
+description: "Report a bug with structured context for GitHub Copilot Coding Agent to fix"
+title: "[BUG] "
+labels:
+  - bug
+  - copilot-agent
+body:
+  - type: textarea
+    id: current_behavior
+    attributes:
+      label: Current Behavior
+      description: "What is happening right now?"
+      placeholder: "Describe the observed behavior."
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: Expected Behavior
+      description: "What should happen instead?"
+      placeholder: "Describe the expected/desired behavior."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps_to_reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: "Provide exact steps for Copilot to reproduce the bug."
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. See error '...'
+    validations:
+      required: true
+
+  - type: textarea
+    id: error_logs
+    attributes:
+      label: Error Message / Logs
+      description: "Paste relevant stack traces or logs."
+      render: shell
+      placeholder: "Include the full error message and any relevant logs."
+    validations:
+      required: false
+
+  - type: input
+    id: environment_version
+    attributes:
+      label: Environment / Version
+      description: "App version, runtime, OS, browser, etc."
+      placeholder: "e.g. v1.4.2, Node 20.11, Chrome 121, macOS 15"
+    validations:
+      required: true
+
+  - type: textarea
+    id: root_cause
+    attributes:
+      label: Root Cause (if known)
+      description: "If you have a hypothesis, share it. Helps Copilot narrow the search."
+      placeholder: "e.g. Likely caused by recent change in X module."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: bug_acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: "How do we know the bug is fixed?"
+      options:
+        - label: "Bug no longer reproduces using the steps above"
+        - label: "Related unit/integration tests pass"
+        - label: "No regressions in related functionality"
+        - label: "Edge cases are covered"
+    validations:
+      required: true
+
+  - type: textarea
+    id: affected_files
+    attributes:
+      label: Likely Affected Files/Areas
+      description: "List files or components where the bug likely lives."
+      placeholder: "e.g. src/components/LoginForm.tsx, server/routes/user.ts"
+    validations:
+      required: false
+
+  - type: textarea
+    id: testing_strategy
+    attributes:
+      label: Testing Strategy
+      description: "How should Copilot validate the fix?"
+      placeholder: "e.g. Run `npm test`, manually test scenario X and Y."
+    validations:
+      required: true

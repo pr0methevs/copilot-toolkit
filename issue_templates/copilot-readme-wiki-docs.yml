@@ -1,0 +1,94 @@
+name: "AI Documentation Generator"
+description: "Instruct @copilot to generate or update documentation with strict structural adherence."
+title: "[DOCS] @copilot: "
+labels:
+  - documentation
+  - ai-generated
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## AI Agent Instructions
+        **Attention @copilot:** You are tasked with generating documentation. You must adhere **strictly** to the structure defined in the "Template & Structure Constraints" section below. Do not deviate from existing formatting styles.
+
+        ### Critical Mermaid & Syntax Rules
+        You must adhere to these rules to prevent "Syntax Error" rendering issues:
+
+        1. **Markdown Wrapping:** Always wrap the diagram in a specific code block:
+            ```mermaid
+            graph TD
+              ...
+            ```
+
+        2. **Newline Handling (STRICT):**
+            - **Structure:** Use standard newlines (`\n`) to separate graph connections. **NEVER** use `<br>` to separate lines of code.
+            - **Inside Node Labels:** You MUST use `<br/>` for line breaks inside text strings.
+              - *Bad:* `id["Line 1 \n Line 2"]` (Breaks rendering)
+              - *Good:* `id["Line 1<br/>Line 2"]`
+
+        3. **Symbol Safety:** - Always wrap node text in double quotes: `id["Text Here"]`.
+            - Do not use parentheses `()` or brackets `[]` inside the text unless they are inside the quotes.
+
+        4. Avoid custom styling of diagrams to prevent rendering and visibility/accessbility issues.
+
+  - type: textarea
+    id: docs_task
+    attributes:
+      label: Documentation Scope
+      description: "Describe the functionality, API, or feature that needs documenting. Mention specific files (@filename) for context."
+      placeholder: "Document the new authentication flow in `src/auth/login.ts`..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: doc_type
+    attributes:
+      label: Documentation Target
+      description: "Where should this documentation live?"
+      options:
+        - "README.md (Codebase Standard)"
+        - "Wiki Page (Knowledge Base)"
+        - "API Reference"
+    validations:
+      required: true
+
+  - type: textarea
+    id: structure_constraints
+    attributes:
+      label: Template & Structure Constraints
+      description: "Define the Section/Heading structure. If targeting the README, instruct adherence to the existing style. If Wiki, provide the specific headings."
+      value: |
+        # Strict Rules:
+        1. If updating README.md: You must analyze the existing file and match the indentation, header styles, and tone exactly.
+        2. If creating a Wiki page: You must use the structure defined in the "Output Template" below.
+    validations:
+      required: true
+
+  - type: textarea
+    id: output_template
+    attributes:
+      label: Required Output Example
+      description: "Provide a few-shot example or the exact Markdown skeleton Copilot must fill in."
+      placeholder: |
+        ## [Section Name]
+        **Description:** [Brief summary]
+
+        ### Configuration
+        | Variable | Type | Default |
+        |----------|------|---------|
+        | ...      | ...  | ...     |
+
+        ### Usage Example
+        ```typescript
+        // Code snippet here
+        ```
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Extra Context
+      description: "Any edge cases or specific notes for the agent."
+    validations:
+      required: false

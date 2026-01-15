@@ -1,0 +1,87 @@
+name: "Test Coverage (for Copilot)"
+description: "Increase automated test coverage in specific modules"
+title: "[TEST] "
+labels:
+  - test-coverage
+  - copilot-agent
+body:
+  - type: textarea
+    id: target_module
+    attributes:
+      label: Target Module / Area
+      description: "Which module(s), package(s), or file(s) should receive more tests?"
+      placeholder: "e.g. src/services/userService.ts"
+    validations:
+      required: true
+
+  - type: input
+    id: current_coverage
+    attributes:
+      label: Current Coverage (if known)
+      description: "Current coverage percentage or qualitative description."
+      placeholder: "e.g. 35% lines, or 'almost no tests'"
+    validations:
+      required: false
+
+  - type: input
+    id: coverage_goal
+    attributes:
+      label: Coverage Goal
+      description: "Target coverage, ideally a percentage or definition."
+      placeholder: "e.g. >= 80% line coverage, all core flows tested"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: test_types
+    attributes:
+      label: Types of Tests Needed
+      options:
+        - label: "Unit tests"
+        - label: "Integration tests"
+        - label: "End-to-end tests"
+        - label: "Snapshot tests"
+    validations:
+      required: true
+
+  - type: textarea
+    id: functions_to_test
+    attributes:
+      label: Functions / Methods to Test
+      description: "List key functions, classes, or scenarios that require tests."
+      placeholder: |
+        - userService.createUser()
+        - userService.resetPassword()
+        - auth middleware for protected routes
+    validations:
+      required: true
+
+  - type: input
+    id: testing_framework
+    attributes:
+      label: Testing Framework
+      description: "Name the framework(s) used in this repo."
+      placeholder: "e.g. Jest, Vitest, Mocha, pytest"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: test_acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      options:
+        - label: "Coverage increased to the stated goal"
+        - label: "All new tests pass"
+        - label: "Tests follow existing patterns and conventions"
+        - label: "Critical edge cases are covered"
+    validations:
+      required: true
+
+  - type: textarea
+    id: example_test_cases
+    attributes:
+      label: Example Test Cases (Optional)
+      description: "Provide a couple of example scenarios or cases to guide Copilot."
+      placeholder: "e.g. 'createUser fails when email already exists', 'resetPassword token expired'."
+    validations:
+      required: false

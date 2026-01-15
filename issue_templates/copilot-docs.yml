@@ -1,0 +1,81 @@
+name: "Documentation (for Copilot)"
+description: "Update or create documentation for the project"
+title: "[DOCS] "
+labels:
+  - documentation
+  - copilot-agent
+body:
+  - type: textarea
+    id: docs_scope
+    attributes:
+      label: Documentation Scope
+      description: "Which docs need updating? (API docs, guides, README, etc.)"
+      placeholder: "e.g. README 'Getting Started', /docs/authentication.md"
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_docs
+    attributes:
+      label: Current Documentation
+      description: "Link to or quote the existing documentation (if any)."
+      placeholder: "Paste relevant excerpt or URL."
+    validations:
+      required: false
+
+  - type: textarea
+    id: required_changes
+    attributes:
+      label: Required Changes
+      description: "What is missing, wrong, or outdated?"
+      placeholder: "Describe the changes that should be made."
+    validations:
+      required: true
+
+  - type: textarea
+    id: information_to_include
+    attributes:
+      label: Information To Include
+      description: "Bullet point the key details that must appear in the updated documentation."
+      placeholder: |
+        - Prerequisites
+        - Example usage for X and Y
+        - Common pitfalls
+    validations:
+      required: true
+
+  - type: dropdown
+    id: target_audience
+    attributes:
+      label: Target Audience
+      description: "Who is this documentation for?"
+      options:
+        - "End users"
+        - "Backend engineers"
+        - "Frontend engineers"
+        - "DevOps / SRE"
+        - "Contributors / maintainers"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: docs_acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      options:
+        - label: "Documentation is clear and complete for the target audience"
+        - label: "Code examples are tested and working"
+        - label: "Links are valid and up to date"
+        - label: "Formatting matches existing docs"
+        - label: "Spelling and grammar checked"
+    validations:
+      required: true
+
+  - type: textarea
+    id: related_code
+    attributes:
+      label: Related Code Files
+      description: "List any code files that the documentation should reference."
+      placeholder: "e.g. src/auth/index.ts, src/hooks/useAuth.ts"
+    validations:
+      required: false

@@ -1,0 +1,73 @@
+name: "Feature Implementation (for Copilot)"
+description: "Request a new feature with clear scope for GitHub Copilot Coding Agent"
+title: "[FEATURE] "
+labels:
+  - enhancement
+  - copilot-agent
+body:
+  - type: textarea
+    id: problem_statement
+    attributes:
+      label: Problem Statement
+      description: "What problem does this feature solve or what value does it provide?"
+      placeholder: "Describe the problem or opportunity this feature addresses."
+    validations:
+      required: true
+
+  - type: textarea
+    id: feature_description
+    attributes:
+      label: Feature Description
+      description: "Clear description of the feature to be implemented."
+      placeholder: "Describe what should be built."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: "What does success look like? Copilot uses these to validate completion."
+      options:
+        - label: "Feature behaves as described in all main scenarios"
+        - label: "No breaking changes introduced"
+        - label: "Unit tests written and passing"
+        - label: "Documentation updated where necessary"
+    validations:
+      required: true
+
+  - type: textarea
+    id: affected_files
+    attributes:
+      label: Affected Files/Areas
+      description: "Which files, modules, or components should Copilot focus on?"
+      placeholder: "e.g. src/features/auth/*.ts, api/userController.ts"
+    validations:
+      required: true
+
+  - type: textarea
+    id: implementation_hints
+    attributes:
+      label: Implementation Hints (Optional)
+      description: "Patterns, frameworks, or approaches you prefer."
+      placeholder: "e.g. Use existing repository pattern; follow Redux slice conventions."
+    validations:
+      required: false
+
+  - type: textarea
+    id: testing_requirements
+    attributes:
+      label: Testing Requirements
+      description: "How should this be tested? Include test types and coverage expectations."
+      placeholder: "e.g. Jest unit tests for reducers; integration test for API endpoint."
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: "Related issues, PRs, or external dependencies."
+      placeholder: "#123, #456, external API v2 rollout"
+    validations:
+      required: false
