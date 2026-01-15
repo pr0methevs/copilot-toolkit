@@ -3,7 +3,7 @@ description: "Instruct @copilot to generate or update documentation with strict 
 title: "[DOCS] @copilot: "
 labels:
   - documentation
-  - ai-generated
+  - copilot-agent
 body:
   - type: markdown
     attributes:
