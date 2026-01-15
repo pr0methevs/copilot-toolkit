@@ -1,0 +1,54 @@
+name: "User Story"
+description: "Describe a feature from the user perspective"
+title: "As a [user type], I want to..."
+labels:
+  - feature
+  - user-story
+body:
+  - type: textarea
+    id: user_story
+    attributes:
+      label: User Story
+      description: "Use the format: As a [type of user], I want [action] so that [benefit]."
+      placeholder: "As a ..., I want ..., so that ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: background
+    attributes:
+      label: Background
+      description: "Context about why this story is needed."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      options:
+        - label: "All main scenarios are supported"
+        - label: "Edge cases are considered"
+        - label: "User experience matches expectations"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: definition_of_done
+    attributes:
+      label: Definition of Done
+      options:
+        - label: "Code complete"
+        - label: "Tests written and passing"
+        - label: "Code reviewed"
+        - label: "Documentation updated"
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: "Any additional information."
+    validations:
+      required: false

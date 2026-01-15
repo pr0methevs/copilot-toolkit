@@ -1,0 +1,78 @@
+name: "Performance Issue"
+description: "Report a performance problem or degradation"
+title: "[PERF] "
+labels:
+  - performance
+body:
+  - type: textarea
+    id: perf_issue
+    attributes:
+      label: Performance Issue
+      description: "Describe the performance problem."
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_behavior
+    attributes:
+      label: Current Behavior
+      description: "How is the system currently performing?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_performance
+    attributes:
+      label: Expected Performance
+      description: "What performance metrics are expected?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: measurements
+    attributes:
+      label: Measurements
+      description: "Include quantitative data if possible (latency, throughput, CPU, etc.)."
+      placeholder: "e.g. p95 latency: current 800ms vs expected 200ms."
+    validations:
+      required: false
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: "Runtime, database, infrastructure, region, etc."
+    validations:
+      required: false
+
+  - type: textarea
+    id: suspected_cause
+    attributes:
+      label: Suspected Cause
+      description: "Any hypothesis about what might be causing the issue."
+    validations:
+      required: false
+
+  - type: textarea
+    id: profiling_data
+    attributes:
+      label: Profiling Data
+      description: "Attach or describe any profiling data (flame graphs, traces, etc.)."
+    validations:
+      required: false
+
+  - type: textarea
+    id: repro_steps
+    attributes:
+      label: Steps to Reproduce
+      description: "How can this performance issue be reproduced?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: "What is the user or business impact of this performance issue?"
+    validations:
+      required: true
