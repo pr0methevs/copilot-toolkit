@@ -1,0 +1,53 @@
+name: "Documentation Issue"
+description: "Report missing, unclear, or incorrect documentation"
+title: "[DOCS] "
+labels:
+  - documentation
+body:
+  - type: textarea
+    id: docs_issue
+    attributes:
+      label: Documentation Issue
+      description: "What is wrong with the documentation?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: location
+    attributes:
+      label: Location
+      description: "Link to the documentation or describe its location."
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_text
+    attributes:
+      label: Current Text
+      description: "Quote the current documentation (if applicable)."
+    validations:
+      required: false
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: "What is unclear, missing, or incorrect?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested_fix
+    attributes:
+      label: Suggested Fix
+      description: "What should the documentation say instead?"
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: "Any additional information or examples."
+    validations:
+      required: false
