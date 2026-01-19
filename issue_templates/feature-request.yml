@@ -1,0 +1,133 @@
+name: "Feature Request"
+description: "Request a new feature or improvement to help us build better"
+title: "[FEATURE] "
+labels: ["enhancement"]
+assignees: []
+projects: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # Feature Request
+        
+        Thank you for taking the time to suggest a feature! Your feedback helps us prioritize and improve the project. Please provide as much detail as possible to help us understand your request.
+
+  - type: checkboxes
+    id: search-existing
+    attributes:
+      label: "Have you searched for similar feature requests?"
+      description: "Please search existing issues to help us avoid duplicates"
+      options:
+        - label: "I have searched existing issues and feature requests"
+          required: true
+
+  - type: input
+    id: title-field
+    attributes:
+      label: "Feature Title"
+      description: "A clear, concise title for your feature request"
+      placeholder: "e.g., Add dark mode support, Improve search performance"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description"
+      description: "Provide a clear and concise description of the feature you're requesting"
+      placeholder: |
+        Describe the feature in detail. Include specific use cases if possible.
+        
+        Example: I would like to see support for exporting data in CSV format...
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: "Motivation & Use Case"
+      description: "Explain the problem this feature solves or the benefit it provides"
+      placeholder: |
+        Describe the problem you're trying to solve or the workflow you'd like to enable.
+        How does this affect your work? What pain points would this address?
+        
+        Example: Currently, I have to manually export data and convert it, which takes...
+    validations:
+      required: true
+
+  - type: textarea
+    id: workaround
+    attributes:
+      label: "Current Workaround"
+      description: "Optional: Describe any workarounds or alternatives you're using"
+      placeholder: |
+        How are you currently managing without this feature?
+        e.g., Using a third-party tool, manual processes, or other workarounds
+    validations:
+      required: false
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: "Proposed Solution"
+      description: "Optional: Describe your ideal solution or how you'd like this feature to work"
+      placeholder: |
+        Share your ideas on how this feature should be implemented
+        Be as specific as possible about the expected behavior
+    validations:
+      required: false
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: "Alternative Solutions"
+      description: "Optional: Have you considered alternative approaches?"
+      placeholder: |
+        Describe any alternative solutions or features you've considered
+        Why is your proposed solution better?
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "Priority/Impact Level"
+      description: "How critical is this feature for your use case?"
+      options:
+        - "Low - Nice to have"
+        - "Medium - Would improve workflow"
+        - "High - Significantly impacts productivity"
+        - "Critical - Blocking current work"
+    validations:
+      required: true
+
+  - type: input
+    id: component
+    attributes:
+      label: "Affected Component/Area"
+      description: "Which part of the project does this relate to?"
+      placeholder: "e.g., API, UI, Documentation, Performance, Security, CLI"
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: "Additional Context"
+      description: "Any other information, links, or screenshots that might be helpful"
+      placeholder: |
+        Add any other context here; You can attach images by dragging them into this field
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: "Contribution & Code of Conduct"
+      description: "Please confirm the following"
+      options:
+        - label: "I'm interested in contributing a pull request for this feature"
+          required: false
+        - label: "I agree to follow the project's Code of Conduct"
+          required: true

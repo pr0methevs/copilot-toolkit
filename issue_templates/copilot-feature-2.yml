@@ -1,0 +1,105 @@
+name: "AI Feature Request"
+description: "Assign a coding task to an AI agent"
+title: "[AI] "
+labels: ["enhancement", "copilot-agent"]
+# If you have a specific bot user (e.g., copilot, sweep-ai), add them below:
+assignees: []
+projects: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # AI Coding Task
+
+        This issue is designed to be picked up by a coding agent
+
+        Please provide strict technical details, file paths, and clear instructions to ensure the generated code is accurate
+
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: "Prerequisites"
+      options:
+        - label: "I have identified the specific files that need modification"
+          required: true
+        - label: "I have clear acceptance criteria for the code"
+          required: true
+
+  - type: input
+    id: title-field
+    attributes:
+      label: "Task Title"
+      description: "A technical summary of the task"
+      placeholder: "e.g.: Refactor UserAuth.ts to use async/await"
+    validations:
+      required: true
+
+  - type: textarea
+    id: task-prompt
+    attributes:
+      label: "Agent Prompt / Description"
+      description: "Instructional prompt for the AI. Be imperative and specific"
+      placeholder: |
+        Implement a new function in the utility class that handles date formatting
+        1. It should accept a ISO string
+        2. It should return "DD/MM/YYYY"
+        3. Handle null inputs gracefully
+    validations:
+      required: true
+
+  - type: textarea
+    id: relevant-files
+    attributes:
+      label: "Relevant File Paths"
+      description: "List the specific files the agent should read to understand the context. This reduces hallucinations"
+      placeholder: |
+        src/components/Header.tsx
+        src/utils/api-client.ts
+        docs/api-spec.md
+    validations:
+      required: true
+
+  - type: textarea
+    id: tech-constraints
+    attributes:
+      label: "Technical Constraints & Style"
+      description: "Libraries to use/avoid, naming conventions, or specific patterns"
+      placeholder: |
+        - Do NOT add new npm packages.
+        - Use Tailwind CSS for styling.
+        - Must strictly follow TypeScript strict mode.
+    validations:
+      required: false
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: "Acceptance Criteria / Tests"
+      description: "How should the agent verify the code works? (Unit tests inputs/outputs)"
+      placeholder: |
+        - Create a unit test in `tests/utils.test.ts`.
+        - Input: "2023-01-01T00:00:00Z" -> Output: "01/01/2023"
+        - Input: null -> Output: ""
+    validations:
+      required: true
+
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: "Complexity Estimate"
+      description: "Help the agent (or human reviewer) gauge the scope."
+      options:
+        - "Small (Single file change)"
+        - "Medium (Multiple files, logic change)"
+        - "Large (Architecture change - Humans should review spec first)"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: review
+    attributes:
+      label: "Human in the Loop"
+      options:
+        - label: "I understand that AI code requires human review and security auditing before merging"
+          required: true
